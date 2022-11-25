@@ -20,25 +20,25 @@ pub struct MatchHistoryByPlayerIdStruct {
     party_size: u32,
 }
 
-impl MatchHistoryByPlayerIdStruct {
-    pub fn create_error_type() -> Self {
-        MatchHistoryByPlayerIdStruct {
-            match_id: 0,
-            player_slot: 0,
-            radiant_win: false,
-            duration: 0,
-            game_mode: 0,
-            lobby_type: 0,
-            hero_id: 0,
-            start_time: 0,
-            version: Some(0),
-            kills: 0,
-            deaths: 0,
-            assists: 0,
-            skill: Some(0),
-            average_rank: 0,
-            leaver_status: 0,
-            party_size: 0,
-        }
-    }
-}
+// impl MatchHistoryByPlayerIdStruct {
+//     pub fn create_error_type() -> Self {
+//         MatchHistoryByPlayerIdStruct {
+//             match_id: 0,
+//             player_slot: 0,
+//             radiant_win: false,
+//             duration: 0,
+//             game_mode: 0,
+//             lobby_type: 0,
+//             hero_id: 0,
+//             start_time: 0,
+//             version: Some(0),
+//             kills: 0,
+//             deaths: 0,
+//             assists: 0,
+//             skill: Some(0),
+//             average_rank: 0,
+//             leaver_status: 0,
+//             party_size: 0,
+//         }
+//     }
+// }
