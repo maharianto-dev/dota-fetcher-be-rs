@@ -3,6 +3,7 @@ use api::dotafetcher::search_match_history_by_player_id;
 mod api;
 mod constants;
 mod structs;
+mod traits;
 
 #[macro_use]
 extern crate rocket;
