@@ -1,4 +1,5 @@
 use api::dotafetcher::search_match_history_by_player_id;
+use structs::cors_struct::Cors;
 
 mod api;
 mod constants;
@@ -12,12 +13,9 @@ fn index() -> &'static str {
     "Hello, world!"
 }
 
-#[rocket::main]
-async fn main() -> Result<(), rocket::Error> {
-    let _rocket = rocket::build()
+#[launch]
+async fn launch() -> _ {
+    rocket::build()
+        .attach(Cors)
         .mount("/", routes![index, search_match_history_by_player_id])
-        .launch()
-        .await?;
-
-    Ok(())
 }

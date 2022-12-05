@@ -1,0 +1,4 @@
+{
+  "allowed_url": "http://localhost:3000",
+  "allowed_method": "POST, PATCH, PUT, DELETE, HEAD, OPTIONS, GET"
+}
