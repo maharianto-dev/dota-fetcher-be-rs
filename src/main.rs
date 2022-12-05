@@ -4,6 +4,7 @@ use structs::cors_struct::Cors;
 mod api;
 mod constants;
 mod structs;
+mod traits;
 
 #[macro_use]
 extern crate rocket;
