@@ -26,7 +26,7 @@ pub async fn search_match_history_by_player_id(
     Json<CommandResultStruct<&str>>,
 > {
     let url = format!(
-        "{}/players/{}/matches?limggit=10",
+        "{}/players/{}/matches?limit=10",
         APP_SETTINGS.get_url_opendota(),
         id
     );
