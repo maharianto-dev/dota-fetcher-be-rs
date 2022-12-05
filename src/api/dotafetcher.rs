@@ -1,11 +1,14 @@
 use std::error::Error;
 
 use reqwest::Client;
-use rocket::{http::Status, response::status, serde::json::Json};
+use rocket::{http::Status, serde::json::Json};
 
 use crate::{
     constants::appsettings::APP_SETTINGS,
-    structs::{commands_struct::ErrorResponseStruct, matches_struct::MatchHistoryByPlayerIdStruct, command_result_struct::CommandResultStruct}, traits::command_result_traits::CommandResult,
+    structs::{
+        command_result_struct::CommandResultStruct, matches_struct::MatchHistoryByPlayerIdStruct,
+    },
+    traits::command_result_traits::CommandResult,
 };
 
 async fn search_match_history_by_player_id_opendota(
@@ -18,7 +21,7 @@ async fn search_match_history_by_player_id_opendota(
     Ok(response)
 }
 
-#[get("/search_match_history_by_player_id/<id>")]
+#[get("/search-match-history-by-player-id?<id>")]
 pub async fn search_match_history_by_player_id(
     id: &str,
 ) -> Result<
@@ -32,7 +35,7 @@ pub async fn search_match_history_by_player_id(
     );
     match search_match_history_by_player_id_opendota(&url).await {
         //Ok(result) => Ok(status::Custom(Status::Ok, Json(result))),
-        Ok(result) => Ok(Json(CommandResultStruct::OkResponse(result))),
+        Ok(result) => Ok(Json(CommandResultStruct::ok_response(result))),
         // Err(err) => {
         //     //println!("error: {:?}", err);
         //     // let mut retval: Vec<MatchHistoryByPlayerIdStruct> = Vec::new();
@@ -43,6 +46,9 @@ pub async fn search_match_history_by_player_id(
         //     //};
         //     //return Err(status::Custom(Status::InternalServerError, Json(retval)));
         // }
-        Err(err) => Ok(Json(CommandResult::ErrorResponse(Status::InternalServerError.code, err.to_string().as_str())))
+        Err(err) => Ok(Json(CommandResult::error_response(
+            Status::InternalServerError.code,
+            err.to_string().as_str(),
+        ))),
     }
 }

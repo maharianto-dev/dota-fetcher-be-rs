@@ -1,4 +1,4 @@
 pub trait CommandResult<T> {
-    fn OkResponse(data: T) -> Self;
-    fn ErrorResponse(err_code: u16, s: &str) -> Self;
+    fn ok_response(data: T) -> Self;
+    fn error_response(err_code: u16, s: &str) -> Self;
 }
